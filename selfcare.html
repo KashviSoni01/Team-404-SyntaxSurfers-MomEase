@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mom Self-Care After Birth | MomEase</title>
+    <style>
+        body {
+  font-family: 'Arial', sans-serif;
+  background: #FAF3F0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #4A4A4A;
+}
+
+header {
+  background: #dcc3a6;
+  padding: 20px;
+  color: white;
+  font-size: 22px;
+}
+#checklist ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+#checklist ul li {
+  display: flex;
+  align-items: center;
+  background: #FFF5F5;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+}
+
+#checklist ul li:hover {
+  background: #FFE0E0;
+}
+
+#checklist input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #FF69B4;
+  margin-right: 12px;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+nav {
+  background: #FFE4E1;
+  padding: 10px;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #C71585;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 500px;
+}
+
+button {
+  background: #FF69B4;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #D14789;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  margin: 15% auto;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.close {
+  color: #aaa;
+  font-size: 20px;
+  float: right;
+  cursor: pointer;
+}
+
+.meditation-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.meditation-item {
+  background: #FFF5F5;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  transition: 0.3s ease-in-out;
+}
+
+.meditation-item:hover {
+  background: #FFE0E0;
+}
+
+.play-button {
+  background: #FF69B4;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.play-button:hover {
+  background: #E057A3;
+}
+
+#nutrition-guide,
+#progress-tracker,
+#self-care-checklist,
+#guided-meditation {
+    width: 90%; 
+    max-width: 900px; 
+    margin: 40px auto; 
+    padding: 25px;
+    background: #fce4ec; 
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+#container {
+    max-width: 90%;
+    margin: auto;
+}
+.read-more-link {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    text-decoration: none;
+    background-color: #e7adb1;
+    color: rgb(15, 1, 1);
+    border-radius: 5px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.read-more-link:hover {
+    background-color: #f5f7e6;
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MomEase: Self-Care After Birth</h1>
+        <p>Nurturing You, As You Nurture Your Baby</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#checklist">Self-Care Checklist</a></li>
+            <li><a href="#meditation">Guided Meditation</a></li>
+            <li><a href="#nutrition">Nutrition Guide</a></li>
+            <li><a href="#progress">Progress Tracker</a></li>
+        </ul>
+    </nav>
+
+    <section id="checklist" class="card">
+        <h2>Self-Care Checklist</h2>
+        <ul>
+            <li><input type="checkbox"> Drink Enough Water</li>
+            <li><input type="checkbox"> Take Rest</li>
+            <li><input type="checkbox"> Gentle Stretching</li>
+            <li><input type="checkbox"> Connect with a Friend</li>
+            <li><input type="checkbox"> Stay Hydrated</li>
+        <li><input type="checkbox"> Get Enough Sleep</li>
+        <li><input type="checkbox"> Practice Deep Breathing</li>
+        <li><input type="checkbox"> Eat Nutritious Meals</li>
+        <li><input type="checkbox"> Take a Short Walk</li>
+        </ul>
+    </section>
+
+    <section id="meditation" class="card">
+      <h2>Guided Meditations for Moms</h2>
+      <p>Take a deep breath and allow yourself a moment of calm. These guided meditations are crafted to help you relax, recharge, and reconnect with yourself during postpartum.</p>
+      
+      <div class="meditation-container">
+          <div class="meditation-item">
+              <h3>🧘‍♀️ 5-Minute Calm Reset</h3>
+              <p>A quick breathing exercise to bring instant peace and clarity.</p>
+              <button class="play-button" data-audio="calm-reset.mp3">Play</button>
+          </div>
+          
+          <div class="meditation-item">
+              <h3>🌿 Nature Healing</h3>
+              <p>Visualize a peaceful garden as you let go of stress and embrace serenity.</p>
+              <button class="play-button" data-audio="nature-healing.mp3">Play</button>
+          </div>
+  
+          <div class="meditation-item">
+              <h3>🌙 Sleep & Relaxation</h3>
+              <p>A soothing bedtime meditation to help you fall into a deep, restful sleep.</p>
+              <button class="play-button" data-audio="sleep-meditation.mp3">Play</button>
+          </div>
+      </div>
+  
+      <audio id="meditation-audio" controls style="display: none;"></audio>
+  </section>
+
+    <section id="nutrition" class="card">
+        <h2>Nutrition Guide</h2>
+        <p>Discover healthy meals to support postpartum recovery.</p>
+        <button onclick="showModal()">View Nutrition Plan</button>
+    </section>
+
+    <section id="progress" class="card">
+        <h2>Progress Tracker</h2>
+        <p>Track your self-care journey.</p>
+        <input type="range" min="0" max="100" value="50" id="progressBar">
+        <p id="progressValue">50%</p>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Healthy Eating Tips</h3>
+            <p>Eat protein-rich foods, stay hydrated, and include iron-rich meals.</p>
+        </div>
+    </div>
+
+    <!-- <div id="progress-tracker">
+      <h2>Progress Tracker</h2>
+      <div id="progress-container">
+          <div id="progress-bar">0%</div>
+      </div>
+  </div> -->
+
+    <footer>
+        <p>&copy; 2025 MomEase | Your Wellness, Our Priority</p>
+    </footer>
+
+    <script>function playMeditation() {
+        alert("Relax, take deep breaths, and let go of stress.");
+      }
+      
+      function showModal() {
+        document.getElementById("modal").style.display = "block";
+      }
+      
+      function closeModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+      
+      window.onclick = function(event) {
+        if (event.target === document.getElementById("modal")) {
+            closeModal();
+        }
+      };
+      
+      document.getElementById("progressBar").addEventListener("input", function() {
+        document.getElementById("progressValue").innerText = this.value + "%";
+      });
+      
+      document.addEventListener('DOMContentLoaded', () => {
+        const audioPlayer = document.getElementById('meditation-audio');
+        const buttons = document.querySelectorAll('.play-button');
+      
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                const audioSrc = this.getAttribute('data-audio');
+                audioPlayer.src = `audio/${audioSrc}`;
+                audioPlayer.style.display = 'block';
+                audioPlayer.play();
+            });
+        });
+      });</script>
+</body>
+</html>

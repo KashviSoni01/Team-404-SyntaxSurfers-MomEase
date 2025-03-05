@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momease - Login</title>
+    <style>
+        body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #f8cdda, #fbc2eb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 350px;
+}
+
+.login-box h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.input-group i {
+  color: #888;
+  margin-right: 10px;
+}
+
+.input-group input {
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+}
+
+.login-btn {
+  background: #d49ea2;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #c48689;
+}
+
+
+.forgot-password {
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.forgot-password a {
+  text-decoration: none;
+  color: #d49ea2;
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+
+.signup-link {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.signup-link a {
+  text-decoration: none;
+  color: #d49ea2;
+  font-weight: bold;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Welcome to Momease</h2>
+            <p class="subtitle">Log in to continue your self-care journey</p>
+            <form id="loginForm">
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+                <p class="forgot-password"><a href="#">Forgot Password?</a></p>
+            </form>
+            <p class="signup-link">Don't have an account? <a href="http://127.0.0.1:5500/signin.html">Sign Up</a></p>
+        </div>
+    </div>
+
+</body>
+</html>

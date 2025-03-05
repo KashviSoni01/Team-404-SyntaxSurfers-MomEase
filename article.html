@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MomEase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            text-align: center;
+            font-family: 'Sacramento', cursive;
+            font-size: 50px;
+        }
+        #featuredbooks{
+    width:100%;
+    height: 700px;
+    padding: 10px ;
+    margin-bottom: 15px;
+}
+
+#featuredbooks h1{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 45px;
+   
+}
+
+#featuredbooks .featuredbox{
+    width: 80%;
+    height: 450px;
+    margin: 0 auto  ;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    overflow: scroll;
+}
+
+#featuredbooks .featuredbox .featuredcard{
+    width: 220px;
+    height: 380px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #070505;
+    margin:  auto  20px;
+}
+
+#featuredbooks .featuredbox .featuredcard:hover{
+    box-shadow: 0 0 8px #037379;
+}
+
+#featuredbooks .featuredbox .featuredcard .featuredimg img{
+    width: 150px;
+    height: 200px;
+}
+
+#featuredbooks .featuredbox .featuredcard .featuredtag .writer{
+    color: #040202;
+    font-size: 20px;
+}
+
+#featuredbooks .featuredbox .featuredcard .featuredtag .categories{
+    color: rgb(7, 7, 7);
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+#featuredbooks .featuredbox .featuredcard .featuredtag .price{
+    margin-top: 8px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+#featuredbooks .featuredbox .featuredcard .featuredtag .price sub{
+    font-weight: 100px;
+    padding:  5px;
+    font-size: 10px;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+    height: 8px;
+}
+
+
+::-webkit-scrollbar-thumb{
+    background:rgb(28, 150, 157);
+    border-radius: 10px;
+}
+
+        
+    </style>
+</head>
+<body>
+<h1>Articles</h1>
+<div id="featuredbooks">
+<div class="wraapper">
+
+<div class="featuredbox">
+<div class="featuredcard" data-title="The Past Is Rising">
+    <div class="icons">
+<div id="share-options-1" class="share-options" style="display: none;">
+<a href="#" onclick="copyLink()"><i class="fas fa-link"></i></a>
+</div>
+    </div>
+    <div class="featuredimg">
+    <img src="https://content.presspage.com/uploads/1483/1920_momandbaby.jpg?10000" alt="The Past Is Rising"width="400" height="550">
+    </div>
+
+    <div class="featuredtag">
+    <p class="writer">"Essential care for new moms to ensure recovery and well-being."</p>
+    <a href="https://www.ncbi.nlm.nih.gov/books/NBK565875/"class="learn more">"Postpartum Care Tips"</a>
+    </div>  
+</div>
+
+<div class="featuredcard" data-title="Reliving Fate" >
+    <div class="icons">
+        <div id="share-options-2" class="share-options" style="display: none;">
+           <a href="#" onclick="copyLink()"><i class="fas fa-link"></i></a>
+        </div>
+    </div>
+    <div class="featuredimg">
+    <img src="https://th.bing.com/th/id/OIP.ZkS3rwPMAjwerA7NlgmNdQHaE6?rs=1&pid=ImgDetMain" alt="Reliving Fate"width="400" height="550">
+    </div>
+
+<div class="featuredtag">
+ <p class="writer">"Essential tips for caring for a newborn, in"</p>
+<a href="https://www.who.int/tools/your-life-your-health/life-phase/newborns-and-children-under-5-years/caring-for-newborns"class="learn more">"Newborn Care Tips"</a>
+ </div>  
+</div>
+
+<div class="featuredcard" data-title="Fortress Blood" >
+<div class="icons">
+    <div id="share-options-3" class="share-options" style="display: none;">
+       <a href="#" onclick="copyLink()"><i class="fas fa-link"></i></a>
+    </div>
+</div>
+<div class="featuredimg">
+<img src="https://th.bing.com/th/id/OIP.DSt5yVurtJ1Uv-SdjUVhoAHaFj?rs=1&pid=ImgDetMain" alt="Fortress Blood" width="400" height="550">
+</div>
+
+ <div class="featuredtag">
+<p class="writer">"Your body undergoes changes as it recovers from childbirth."</p>
+<a href="https://my.clevelandclinic.org/health/articles/9682-pregnancy-physical-changes-after-delivery"class="learn more">"Postpartum Body Changes"
+</a>
+
+ </div>  
+</div>
+
+<div class="featuredcard" data-title="Daughter of The Dark" >
+<div class="icons">
+    <div id="share-options-4" class="share-options" style="display: none;">
+        <a href="#" onclick="copyLink()"><i class="fas fa-link"></i></a>
+    </div>
+</div>
+<div class="featuredimg">
+<img src="https://www.thelist.com/img/gallery/your-guide-to-navigating-postpartum-depression/l-intro-1675621782.jpg"alt="Daughter of The dark" width="400" height="550">
+</div>
+<div class="featuredtag">
+<p class="writer">"Postpartum depression affects many new parents. Know the signs and get the help you need."</p>
+<a href="https://www.mayoclinic.org/diseases-conditions/postpartum-depression/symptoms-causes/syc-20376617"class="learn more">Postparturm Depression</a>
+ </div>  
+</div>
+
+
+<div class="featuredcard" data-title="The Book of Lost Friends">
+<div class="icons">
+    <div id="share-options-5" class="share-options" style="display: none;">
+
+        <a href="#" onclick="copyLink()"><i class="fas fa-link"></i></a>
+    </div>
+</div>
+<div class="featuredimg">
+<img src="https://media.npr.org/assets/img/2024/01/19/lk_matrescence_becoming-a-new-mom_wide-c9cbda061b663ad726fa6e19991b5061151dbd9f-s1400-c100.jpg"alt="The Book of Lost Friends" width="400" height="550">
+</div>
+
+<div class="featuredtag">
+<p class="writer">"Motherhood is a rollercoaster. Learn how to navigate the emotional ups and downs."</p>
+ <a href="https://www.npr.org/2021/08/08/1024674033/theres-a-name-for-the-ups-and-downs-of-new-motherhood-its-called-matrescence"class="learn more">"Learn More About Motherhood"</a>
+ </div>  
+</div>
+
+<div class="featuredcard" data-title="Fire Dance">
+<div class="icons">
+    <div id="share-options-6" class="share-options" style="display: none;">
+        <a href="#" onclick="copyLink()"><i class="fas fa-link"></i></a>
+    </div>
+</div>
+<div class="featuredimg">
+<img src="https://th.bing.com/th/id/OIP.1byv-tU9Hm0F_9NMpvr-QwHaEK?rs=1&pid=ImgDetMain"alt="Fire Dance" width="400" height="550">
+</div>
+
+<div class="featuredtag">
+<p class="writer">"Get the essential tips for caring for your newborn at home."</p>
+<a href="https://www.nytimes.com/article/newborn-baby-care-guide.html"class="learn more">"Learn the Basics of Newborn Care"</a>
+
+</div>  
+</div>
+</body>
+</html>
+
+<!-- <div class="featuredcard" data-title="Soldier Of Sword">
+<div class="icons">
+    <span class="wishlist-icon" onclick="addToWishlist('Soldier Of Sword')">❤️</span>
+    <div class="share-icon" onclick="toggleShareOptions('share-options-7')">🔗</div>
+    <div id="share-options-7" class="share-options" style="display: none;">
+        <a href="#" onclick="shareTo('Facebook')"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" onclick="shareTo('Instagram')"><i class="fab fa-instagram"></i></a>
+        <a href="#" onclick="shareTo('Twitter')"><i class="fab fa-twitter"></i></a>
+        <a href="#" onclick="shareTo('LinkedIn')"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" onclick="shareTo('Pinterest')"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#" onclick="shareTo('WhatsApp')"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" onclick="copyLink()"><i class="fas fa-link"></i></a>
+    </div>
+</div>
+<div class="featuredimg">
+    <img src="https://th.bing.com/th/id/OIP.2OQGZHItXa4c8gS3XJhs6gHaL0?w=677&h=1080&rs=1&pid=ImgDetMain"alt="Soldier Of Sword" width="100" height="150">
+</div>
+
+<div class="featuredtag">
+<p class="writer">D.K. Holmberg</p>
+<div class="categories">Thriller,Horror</div>
+<p class="price">$25.50<sub><del>$28.60</del></sub></p>
+<a href="#"class="learn more">Learn More</a>
+
+</div>  
+</div>
+
+<div class="featuredcard" data-title="The Earth Family Smith">
+<div class="icons">
+    <span class="wishlist-icon" onclick="addToWishlist('The Earth Family Smith')">❤️</span>
+    <div class="share-icon" onclick="toggleShareOptions('share-options-8')">🔗</div>
+<div id="share-options-8" class="share-options" style="display: none;">
+<a href="#" onclick="shareTo('Facebook')"><i class="fab fa-facebook-f"></i></a>
+<a href="#" onclick="shareTo('Instagram')"><i class="fab fa-instagram"></i></a>
+<a href="#" onclick="shareTo('Twitter')"><i class="fab fa-twitter"></i></a>
+<a href="#" onclick="shareTo('LinkedIn')"><i class="fab fa-linkedin-in"></i></a>
+<a href="#" onclick="shareTo('Pinterest')"><i class="fab fa-pinterest-p"></i></a>
+<a href="#" onclick="shareTo('WhatsApp')"><i class="fab fa-whatsapp"></i></a>
+<a href="#" onclick="copyLink()"><i class="fas fa-link"></i></a>
+</div>
+</div>
+<div class="featuredimg">
+    <img src="https://miblart.com/wp-content/uploads/2021/03/img_6054a6c45b907.png"alt="The Earth Family Smith" width="100" height="150">
+</div>
+
+<div class="featuredtag">
+<p class="writer">Chun-Tien-Leung</p>
+<div class="categories">Thriller, Romance</div>
+<p class="price">$25.50<sub><del>$28.60</del></sub></p>
+<a href="#"class="learn more">Learn More</a>
+
+</div>  
+</div>
+
+<div class="featuredcard" data-title="Eternity's Shadow">
+<div class="icons">
+    <span class="wishlist-icon" onclick="addToWishlist('Eternity Shadow')">❤️</span>
+    <div class="share-icon" onclick="toggleShareOptions('share-options-9')">🔗</div>
+    <div id="share-options-9" class="share-options" style="display: none;">
+        <a href="#" onclick="shareTo('Facebook')"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" onclick="shareTo('Instagram')"><i class="fab fa-instagram"></i></a>
+        <a href="#" onclick="shareTo('Twitter')"><i class="fab fa-twitter"></i></a>
+        <a href="#" onclick="shareTo('LinkedIn')"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" onclick="shareTo('Pinterest')"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#" onclick="shareTo('WhatsApp')"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" onclick="copyLink()"><i class="fas fa-link"></i></a>
+    </div>
+</div>
+<div class="featuredimg">
+    <img src="https://m.media-amazon.com/images/I/61mld0E4aNL.SL500.jpg"alt="Eternity's Shadow" width="100" height="150">
+</div>
+
+<div class="featuredtag">
+<p class="writer">Mark Whiteway</p>
+<div class="categories">Thriller,Romance</div>
+<p class="price">$25.50<sub><del>$28.60</del></sub></p>
+<a href="#"class="learn more">Learn More</a>
+
+</div>  
+</div>
+
+<div class="featuredcard" data-title="The Uninvited">
+<div class="icons">
+    <span class="wishlist-icon" onclick="addToWishlist('The Uninvited')">❤️</span>
+    <div class="share-icon" onclick="toggleShareOptions('share-options-10')">🔗</div>
+    <div id="share-options-10" class="share-options" style="display: none;">
+        <a href="#" onclick="shareTo('Facebook')"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" onclick="shareTo('Instagram')"><i class="fab fa-instagram"></i></a>
+        <a href="#" onclick="shareTo('Twitter')"><i class="fab fa-twitter"></i></a>
+        <a href="#" onclick="shareTo('LinkedIn')"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" onclick="shareTo('Pinterest')"><i class="fab fa-pinterest-p"></i></a>
+        <a href="#" onclick="shareTo('WhatsApp')"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" onclick="copyLink()"><i class="fas fa-link"></i></a>
+    </div>
+</div>
+<div class="featuredimg">
+    <img src="https://thebookcoverdesigner.com/wp-content/uploads/2023/08/The-Uninvited.jpg"alt="The Uninvited" width="100" height="150">
+</div>
+    
