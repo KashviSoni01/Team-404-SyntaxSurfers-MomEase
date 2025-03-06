@@ -7,11 +7,12 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 20px;
+    background-image: url("pink.jpg");
   }
   
   /* Main container */
   .container {
-    background: white;
+    background: rgb(255, 255, 255);
     padding: 40px;
     width: 60%;
     border-radius: 12px;
@@ -30,15 +31,16 @@ body {
   
   /* Heading styles */
   h1 {
-    color:black;
+    color:rgb(211, 152, 199);
     margin-bottom: 10px;
-    font-size: 28px;
+    margin-top: 15px;
+    font-size: 50px;
     font-weight: bold;
   }
   
   .subtitle {
-    color: #8d6e63;
-    font-size: 16px;
+    color: #807db0;
+    font-size: 20px;
     margin-bottom: 20px;
   }
   
@@ -49,7 +51,7 @@ body {
   
   /* Form Groups */
   .form-group {
-    background: #ffebd2;
+    background: #f5e0eb;
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -59,7 +61,7 @@ body {
   
   /* Hover effect on question blocks */
   .form-group:hover {
-    background: #ffd8a8;
+    background: #dcbdd6;
     transform: scale(1.01);
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
   }
@@ -86,27 +88,10 @@ body {
     flex-direction: column;
     gap: 8px;
   }
-  
-  .checkbox-group label {
-    font-weight: normal;
-    color: #9ddf8b;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 15px;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  
-  .checkbox-group label:hover {
-    transform: scale(1.02);
-    color: #5430b7;
-  }
-  
-  
+
   .submit-btn {
-    background: #cbae95;
-    color: white;
+    background: #dcbdd6;
+    color: rgb(15, 0, 0);
     padding: 14px;
     font-size: 16px;
     border: none;
@@ -121,6 +106,7 @@ body {
   
   
   .submit-btn:hover {
-    background: #d35400;
+    background: #f7f5f4;
     transform: scale(1.05);
   }
+  

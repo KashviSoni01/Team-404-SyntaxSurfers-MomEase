@@ -3,180 +3,572 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Postpartum Community</title>
+    <title>MomEase Community</title>
     <style>
-       
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff0f5;
-    text-align: center;
+        body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
 }
 
-header {
-    background-color: #eb7190;
-    color: white;
-    padding: 20px 0;
+.navbar {
+  background: #ff8b94;
+  color: white;
+  padding: 13px;
+  align-items: center;
 }
-
-header h1 {
-    margin: 0;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
+.navbar .h1{
+  align-items: center;
 }
 
 
-.hero {
-    background: url('community-banner.jpg') no-repeat center/cover;
-    padding: 100px 20px;
-    color: rgb(43, 36, 36);
+.filters {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
 
-.hero h2 {
-    font-size: 36px;
-    margin-bottom: 10px;
+.filter {
+  background: #ff8b94;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.hero button {
-    background: white;
-    color: #ff3366;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-.hero button:hover {
-    background: #cc0052;
-    color: white;
-}
-
-
-.discussion, .resources {
-    padding: 50px 20px;
-}
-
-.discussion h2, .resources h2 {
-    color: #ff3366;
-    font-size: 28px;
-}
-
-.discussion-box, .resource-box {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    display: inline-block;
-    width: 250px;
-}
-
-button {
-    background: #ff3366;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-button:hover {
-    background: #cc0052;
+#filternew{
+  text-decoration:none;
+  background: #ff8b94;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 
-.support {
-    background: #ffccd5;
-    padding: 50px 20px;
+.community-feed {
+  width: 60%;
+  margin: auto;
 }
 
-.support h2 {
-    color: #cc0052;
-    font-size: 28px;
+.chat-card {
+  background: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 12px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-footer {
-    background: #ff3366;
-    color: white;
-    padding: 20px;
-    margin-top: 30px;
+.avatar {
+  font-size: 24px;
+}
+
+.chat-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.reply-btn {
+  background: #ff8b94;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.reply-btn:hover {
+  background: #ff5c67;
+}
+
+/* Reply Modal */
+.reply-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  z-index: 1000;
+  display: none;
+}
+
+.modal-content {
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.replies-list {
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.reply {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.reply-input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.send-reply {
+  width: 100%;
+  background: #ff8b94;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.send-reply:hover {
+  background: #ff5c67;
 }
     </style>
 </head>
 <body>
-    
-    <header>
-        <h1>Postpartum Support Community</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Resources</a></li>
-                <li><a href="#">Discussions</a></li>
-                <li><a href="#">Support</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header class="navbar">
+    <centre><h1>MomEase Community</h1></centre>
 
+</header>
 
-    <section class="hero">
-        <h2>You're Not Alone 💕</h2>
-        <p>Join a community of mothers supporting each other through the postpartum journey.</p>
-        <button>Join Now</button>
-    </section>
+<div class="filters">
+    <button id="filternew"><a href="#filternew">Popular</a></button>
+    <button class="filter"><a href="http://127.0.0.1:5500/mypost.html">My Posts</a></button>
+    <button class="filter"><a href="http://127.0.0.1:5500/self.html">"Mom's care</a></button>
+</div>
 
+    <div class="community-feed" id="feed">
+       
+    </div>
 
-    <section class="discussion">
-        <h2>Join the Conversation</h2>
-        <div class="discussion-box">
-            <h3>💬 Share Your Story</h3>
-            <p>Connect with other moms, ask questions, and offer support.</p>
-            <button>Go to Forum</button>
+ 
+    <div id="replyModal" class="reply-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="replyTitle">Replies</h3>
+            <div id="repliesList"></div>
+            <input type="text" id="replyInput" class="reply-input" placeholder="Type your reply...">
+            <button id="sendReply" class="send-reply">Send</button>
         </div>
-        <div class="discussion-box">
-            <h3>📅 Upcoming Events</h3>
-            <p>Join live Q&A sessions, group chats, and webinars.</p>
-            <button>View Events</button>
-        </div>
-    </section>
+    </div>
 
-    <section class="resources">
-        <h2>Helpful Resources</h2>
-        <div class="resource-box">
-            <h3>🍼 Newborn Care</h3>
-            <p>Learn essential tips on taking care of your baby.</p>
-            <button>Read More</button>
-        </div>
-        <div class="resource-box">
-            <h3>🧘 Self-Care Tips</h3>
-            <p>Find ways to take care of yourself postpartum.</p>
-            <button><a href="http://127.0.0.1:5500/selfcare.html" class="read-more-link">Read More</a></button>
+    <script>
+        const chatData = [
+  {
+      username: "Emily",
+      avatar: "👩‍🦰",
+      content: "Motherhood is tough, but so rewarding! Anyone else struggling with sleep?",
+      category: "Chit-Chat",
+      likes: 189,
+      replies: [
+          { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby keeps waking up every hour." },
+          { username: "Olivia", avatar: "👩", content: "Same here! I'm so sleep-deprived." }
+      ]
+  },
+  {
+      username: "Sarah",
+      avatar: "👩‍🦱",
+      content: "Any moms here dealing with postpartum anxiety? Let's talk.",
+      category: "Mental Health",
+      likes: 120,
+      replies: [
+          { username: "Jessica", avatar: "👩‍⚖️", content: "I experienced that too. Therapy helped a lot!" },
+          { username: "Amanda", avatar: "👩‍🦳", content: "You're not alone, Sarah! It gets better." }
+      ]
+  },
+  {
+    username: "Olivia",
+    avatar: "👩",
+    content: "My baby just started walking! Any tips on keeping up with them?",
+    category: "Milestones",
+    likes: 95,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Rachel",
+    avatar: "👩‍⚕️",
+    content: "How do you balance work and being a new mom? I feel exhausted.",
+    category: "Working Moms",
+    likes: 80,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
 
-        </div>
-    </section>
+  {
+    username: "Amanda",
+    avatar: "👩‍🦳",
+    content: "Breastfeeding has been harder than I thought. Any advice?",
+    category: "Newborn Care",
+    likes: 130,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+
+  {
+    username: "Jessica",
+    avatar: "👩‍⚖️",
+    content: "My toddler refuses to eat anything but snacks. Help!",
+    category: "Toddler Life",
+    likes: 95,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Hannah",
+    avatar: "👩‍🎨",
+    content: "Self-care is important too! Moms, how do you take time for yourself?",
+    category: "Self-Care",
+    likes: 110,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Lily",
+    avatar: "👩‍🦰",
+    content: "How did you all handle the first day of daycare? I'm so emotional!",
+    category: "Parenting",
+    likes: 89,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every 2 hours. Any tips?" },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "White noise helped my baby sleep better." }
+    ]
+  },
+  {
+    username: "Natalie",
+    avatar: "👩‍🔬",
+    content: "My baby keeps waking up at night. Is sleep training worth it?",
+    category: "Sleep Training",
+    likes: 102,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Emma",
+    avatar: "👩‍⚕️",
+    content: "Postpartum hair loss is real. When does it stop?!",
+    category: "Postpartum Health",
+    likes: 76,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Sophia",
+    avatar: "👩‍💻",
+    content: "Is it normal to feel guilty about going back to work?",
+    category: "Working Moms",
+    likes: 140,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Isabella",
+    avatar: "👩‍🎓",
+    content: "What are some fun activities to do with a newborn?",
+    category: "Newborn Care",
+    likes: 85,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Madison",
+    avatar: "👩‍🚀",
+    content: "My C-section scar still hurts sometimes. Is that normal?",
+    category: "Postpartum Health",
+    likes: 78,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Ava",
+    avatar: "👩‍🔧",
+    content: "Any tips for managing tantrums? My toddler has been wild lately!",
+    category: "Toddler Life",
+    likes: 99,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Chloe",
+    avatar: "👩‍🍳",
+    content: "What are some quick and healthy meals for busy moms?",
+    category: "Mom Hacks",
+    likes: 112,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Grace",
+    avatar: "👩‍🚒",
+    content: "How do you handle visitors after having a baby? I feel overwhelmed.",
+    category: "Newborn Care",
+    likes: 90,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Evelyn",
+    avatar: "👩‍🎤",
+    content: "How do you deal with mom guilt? I feel like I'm not doing enough.",
+    category: "Mental Health",
+    likes: 115,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Luna",
+    avatar: "👩‍⚕️",
+    content: "Does anyone else feel like their relationship changed after baby?",
+    category: "Marriage & Parenting",
+    likes: 98,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Zoe",
+    avatar: "👩‍🚀",
+    content: "At what age did your baby start talking? I'm so excited!",
+    category: "Milestones",
+    likes: 80,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Mia",
+    avatar: "👩‍🌾",
+    content: "I miss my pre-baby body. Any fitness tips?",
+    category: "Fitness",
+    likes: 145,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  },
+  {
+    username: "Layla",
+    avatar: "👩‍🔬",
+    content: "How do you all budget for baby expenses? It’s overwhelming!",
+    category: "Mom Hacks",
+    likes: 108,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }]
+  },
+  {
+    username: "Caroline",
+    avatar: "👩‍🎨",
+    content: "I feel so lonely some days. How do you make mom friends?",
+    category: "Mom Life",
+    likes: 136,
+    replies: [
+      { username: "Sarah", avatar: "👩‍🦱", content: "Yes! My baby wakes up every two hours. It's exhausting." },
+      { username: "Olivia", avatar: "👩", content: "Same here, any sleep training tips?" },
+      { username: "Rachel", avatar: "👩‍⚕️", content: "I tried white noise, it helped a lot!" },
+      { username: "Amanda", avatar: "👩‍🦳", content: "I co-sleep, and it's been working for us." },
+      { username: "Jessica", avatar: "👩‍⚖️", content: "Have you tried a bedtime routine? It helps a lot." }
+    ]
+  }
+];
+
+const feed = document.getElementById("feed");
+const replyModal = document.getElementById("replyModal");
+const replyTitle = document.getElementById("replyTitle");
+const repliesList = document.getElementById("repliesList");
+const replyInput = document.getElementById("replyInput");
+const sendReply = document.getElementById("sendReply");
+const closeModal = document.querySelector(".close-modal");
+
+let currentChatIndex = null; 
 
 
-    <footer>
-        <p>&copy; 2025 Postpartum Support Community. All Rights Reserved.</p>
-    </footer>
+function loadChats() {
+  feed.innerHTML = "";
+  chatData.forEach((chat, index) => {
+      const chatCard = document.createElement("div");
+      chatCard.classList.add("chat-card");
+
+      chatCard.innerHTML = `
+          <div class="chat-header">
+              <span class="avatar">${chat.avatar}</span>
+              <strong>${chat.username}</strong>
+          </div>
+          <div class="chat-content">
+              ${chat.content}
+          </div>
+          <div class="chat-category">
+              <span>${chat.category}</span>
+          </div>
+          <div class="chat-actions">
+              <span>❤️ ${chat.likes}</span>
+              <button class="reply-btn" data-index="${index}">View Replies</button>
+          </div>
+      `;
+
+      feed.appendChild(chatCard);
+  });
+
+ 
+  document.querySelectorAll(".reply-btn").forEach(button => {
+      button.addEventListener("click", (event) => {
+          currentChatIndex = event.target.dataset.index;
+          openReplyModal(currentChatIndex);
+      });
+  });
+}
+
+
+function openReplyModal(index) {
+  replyTitle.innerText = `Replies to ${chatData[index].username}'s post`;
+  repliesList.innerHTML = chatData[index].replies.map(reply => `
+      <div class="reply">
+          <span class="avatar">${reply.avatar}</span>
+          <strong>${reply.username}</strong>: ${reply.content}
+      </div>
+  `).join("");
+  replyModal.style.display = "block";
+}
+
+
+sendReply.addEventListener("click", () => {
+  const newReply = replyInput.value.trim();
+  if (newReply && currentChatIndex !== null) {
+      chatData[currentChatIndex].replies.push({
+          username: "You",
+          avatar: "👤",
+          content: newReply
+      });
+
+      replyInput.value = "";
+      openReplyModal(currentChatIndex); 
+  }
+});
+
+
+closeModal.addEventListener("click", () => {
+  replyModal.style.display = "none";
+});
+
+
+loadChats();
+    </script>
+
 </body>
 </html>

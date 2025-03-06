@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Posts - MomEase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #fff0f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ff6fb3;
+            padding: 20px;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 36px;
+            color: white;
+        }
+
+        .new-post-btn {
+            background: #ff4d95;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .new-post-btn:hover {
+            background: #ff1f6e;
+        }
+
+        /* Pop-up Overlay */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #ff6fb3;
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            resize: none;
+        }
+
+        .emoji-picker {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .emoji-picker span {
+            cursor: pointer;
+            font-size: 22px;
+            padding: 5px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .emoji-picker span:hover {
+            background: #ffb3d9;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background: #f9e0f7;
+        }
+
+        .post-btn {
+            width: 100%;
+            padding: 10px;
+            background: #ff4d95;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .post-btn:hover {
+            background: #ff1f6e;
+        }
+
+        .posts-container {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .post-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px auto;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 500px;
+            text-align: left;
+            border-left: 5px solid #ff6fb3;
+        }
+
+        .post-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .post-header .avatar {
+            font-size: 24px;
+        }
+
+        .post-content {
+            margin: 10px 0;
+        }
+
+        .post-category {
+            font-size: 12px;
+            color: gray;
+        }
+
+        .post-actions {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .post-actions button {
+            background: #ff6fb3;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .post-actions button:hover {
+            background: #ff1f6e;
+        }
+
+        .reply {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+            gap: 10px;
+        }
+
+        .reply .avatar {
+            font-size: 20px;
+        }
+
+        .reply-content {
+            margin-left: 10px;
+            background-color: #ffebf3;
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <h1>My Posts</h1>
+        <button class="new-post-btn" onclick="openNewPostPopup()"> New Post</button>
+    </header>
+
+    <div class="posts-container" id="my-posts"></div>
+
+    <!-- Reply Pop-up -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">✖</span>
+            <h2>Replies</h2>
+            <div id="reply-content"></div>
+
+            <!-- Input area for replying -->
+            <textarea id="reply-input" placeholder="Write your reply..."></textarea>
+            <button class="post-btn" onclick="submitReply()">Reply</button>
+        </div>
+    </div>
+
+    <!-- New Post Pop-up -->
+    <div class="popup-overlay" id="new-post-popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">✖</span>
+            <h2>Create a New Post</h2>
+            <textarea id="new-post-content" placeholder="What's on your mind?"></textarea>
+
+            <div class="emoji-picker">
+                <span onclick="insertEmoji('😊')">😊</span>
+                <span onclick="insertEmoji('😍')">😍</span>
+                <span onclick="insertEmoji('😂')">😂</span>
+                <span onclick="insertEmoji('❤️')">❤️</span>
+                <span onclick="insertEmoji('👍')">👍</span>
+                <span onclick="insertEmoji('🔥')">🔥</span>
+                <span onclick="insertEmoji('😭')">😭</span>
+                <span onclick="insertEmoji('🥰')">🥰</span>
+                <span onclick="insertEmoji('🤔')">🤔</span>
+                <span onclick="insertEmoji('🙌')">🙌</span>
+                <span onclick="insertEmoji('🎉')">🎉</span>
+                <span onclick="insertEmoji('👶')">👶</span>
+                <span onclick="insertEmoji('🌸')">🌸</span>
+                <span onclick="insertEmoji('😅')">😅</span>
+                <span onclick="insertEmoji('💪')">💪</span>
+            </div>
+
+            <select id="new-post-category">
+                <option value="Mom Life">Mom Life</option>
+                <option value="Fitness">Fitness</option>
+                <option value="Mental Health">Mental Health</option>
+                <option value="Baby Nutrition">Baby Nutrition</option>
+            </select>
+
+            <button class="post-btn" onclick="createPost()">Post</button>
+        </div>
+    </div>
+
+    <div class="posts-container" id="posts"></div>
+
+    <script>
+        const myPosts = [
+            {
+                username: "You",
+                avatar: "👩",
+                content: "Just had the best day with my little one! 😊",
+                category: "Mom Life",
+                likes: 120,
+                comments: 2,
+                replies: [
+                    { username: "Sarah", avatar: "👩‍🦱", content: "Aww, what did you do?" },
+                    { username: "Emily", avatar: "👩‍🦰", content: "So happy for you!" }
+                ]
+            },
+            {
+                username: "You",
+                avatar: "👩",
+                content: "Postpartum workouts are tough! Any tips?",
+                category: "Fitness",
+                likes: 98,
+                comments: 2,
+                replies: [
+                    { username: "Jessica", avatar: "👩‍⚖️", content: "Take it slow, mama!" },
+                    { username: "Olivia", avatar: "👩", content: "Yoga helped me a lot!" }
+                ]
+            }
+        ];
+
+        function openNewPostPopup() {
+            document.getElementById("new-post-popup").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("new-post-popup").style.display = "none";
+        }
+
+        function insertEmoji(emoji) {
+            let textarea = document.getElementById("new-post-content");
+            let start = textarea.selectionStart;
+            let end = textarea.selectionEnd;
+
+            let text = textarea.value;
+            textarea.value = text.substring(0, start) + emoji + text.substring(end);
+            textarea.focus();
+            textarea.selectionStart = textarea.selectionEnd = start + emoji.length;
+        }
+
+        function displayPosts() {
+            const myPostsContainer = document.getElementById("my-posts");
+            myPostsContainer.innerHTML = ""; 
+
+            myPosts.forEach((post, index) => {
+                const postCard = document.createElement("div");
+                postCard.classList.add("post-card");
+
+                postCard.innerHTML = `
+                    <div class="post-header">
+                        <span class="avatar">${post.avatar}</span>
+                        <strong>${post.username}</strong>
+                    </div>
+                    <div class="post-content">
+                        ${post.content}
+                    </div>
+                    <div class="post-category">
+                        <span>${post.category}</span>
+                    </div>
+                    <div class="post-actions">
+                        <span>❤️ ${post.likes}</span>
+                        <button onclick="openReplyPopup(${index})">💬 ${post.comments}</button>
+                    </div>
+                `;
+
+                myPostsContainer.prepend(postCard);
+            });
+        }
+
+        function openReplyPopup(index) {
+            const popup = document.getElementById("popup");
+            const replyContent = document.getElementById("reply-content");
+            const replyInput = document.getElementById("reply-input");
+
+            replyInput.value = "";
+
+            replyContent.innerHTML = myPosts[index].replies.map(reply => `
+                <div class="reply">
+                    <span class="avatar">${reply.avatar}</span>
+                    <strong>${reply.username}</strong>: <span class="reply-content">${reply.content}</span>
+                </div>
+            `).join('');
+
+            popup.setAttribute('data-post-index', index);
+            popup.style.display = "flex";
+        }
+
+        function submitReply() {
+            const replyInput = document.getElementById("reply-input");
+            const popup = document.getElementById("popup");
+
+            const postIndex = popup.getAttribute('data-post-index');
+            const replyContent = replyInput.value.trim();
+
+            if (replyContent === "") {
+                alert("Reply cannot be empty!");
+                return;
+            }
+
+            myPosts[postIndex].replies.push({
+                username: "You", 
+                avatar: "👩", 
+                content: replyContent
+            });
+
+            displayPosts();
+            closePopup();
+        }
+
+        function createPost() {
+            const newPostContent = document.getElementById("new-post-content").value;
+            const newPostCategory = document.getElementById("new-post-category").value;
+
+            if (newPostContent.trim() === "") {
+                alert("Post content cannot be empty!");
+                return;
+            }
+
+            const newPost = {
+                username: "You",
+                avatar: "👩",
+                content: newPostContent,
+                category: newPostCategory,
+                likes: 0,
+                comments: 0,
+                replies: []
+            };
+
+            myPosts.unshift(newPost);
+            displayPosts();
+            closePopup();
+        }
+
+        displayPosts();
+    </script>
+</body>
+</html>
